@@ -1,0 +1,69 @@
+<section>
+<div class="add">
+    <button class="btn btn-primary" routerLink="/ADDContact">+ADD</button>
+</div>
+
+<div class="container-fluid">
+    <table class="table table-striped table-hover">
+        <tr>
+            <th>Id</th>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Email</th>
+            <th>Phonenumber</th>
+
+            <th colspan="2">
+                <input type="text" placeholder="Search" #searchKey (input)="searchkey=searchKey.value">
+            </th>
+
+        </tr>
+        <tbody *ngIf="Contacts.length > 0">
+            <tr *ngFor="let ud of Contacts |search:searchkey">
+                <td>{{ud.id}}</td>
+                <td>{{ud.firstname}}</td>
+                <td>{{ud.lastname}}</td>
+                <td>{{ud.email}}</td>
+                <td>{{ud.phoneNum}}</td>
+
+                <td>
+                    <button type="button" class="btn btn-success mr-3" aria-hidden="true" data-target="#editModal"
+                        data-toggle="modal" (click)="Ediobj = ud"> UPDATE </button>
+                    <button type="button" class="btn btn-danger" (click)="DeleteContact(ud.id)"> DELETE </button>
+                </td>
+            </tr>
+        </tbody>
+
+    </table>
+</div>
+</section>
+<div class="modal fade" id="editModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header h5 text-primary">
+                <div class="text-center">
+                    EDIT CONTACT
+                </div>
+            </div>
+            <div class="modal-body">
+                <form #editForm="ngForm">
+                    <div class="form-group">
+                        <input type="text" name="firstname" ngModel={{Ediobj.firstname}} class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="lastname" ngModel={{Ediobj.lastname}} class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="email" ngModel={{Ediobj.email}} class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="phoneNum" ngModel={{Ediobj.phoneNum}} class="form-control">
+                    </div>
+                    <div class="text-center">
+                        <button type="button" class="btn btn-outline-warning" (click)="upDate(editForm.value)"
+                            data-dismiss="modal">UPDATE</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

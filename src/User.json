@@ -1,0 +1,25 @@
+{
+  "Usercontacts": [
+    {
+      "firstname": "krishnaveni",
+      "lastname": "sangu",
+      "email": "ks@gmail.com",
+      "phoneNum": "9505155540",
+      "id": 5
+    },
+    {
+      "firstname": "Adi",
+      "lastname": "sangu",
+      "email": "sangu@gmail.com",
+      "phoneNum": 9666702556,
+      "id": 6
+    },
+    {
+      "firstname": "ketan",
+      "lastname": "daram",
+      "email": "admin@gmail.com",
+      "phoneNum": 123456789,
+      "id": 7
+    }
+  ]
+}
